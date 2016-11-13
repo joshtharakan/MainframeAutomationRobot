@@ -1,0 +1,149 @@
+﻿<controls:ModernUserControl x:Class="AZUK.MainframeAutomationRobot.Views.ScreenControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AZUK.MainframeAutomationRobot.Controls"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:helpers="clr-namespace:AZUK.MainframeAutomationRobot.Helpers"
+             xmlns:syscmd="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d" 
+           x:Name="Screen">
+    <controls:ModernUserControl.Resources>
+        <helpers:StarWidthConverter x:Key="starWidthConverter"></helpers:StarWidthConverter>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </controls:ModernUserControl.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="NavigatedTo">
+            <i:InvokeCommandAction Command="{Binding NavigatedToCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="NavigatedFrom">
+            <i:InvokeCommandAction Command="{Binding NavigatedFromCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="NavigatingFrom">
+            <i:InvokeCommandAction Command="{Binding NavigatingFromCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="FragmentNavigation">
+            <i:InvokeCommandAction Command="{Binding FragmentNavigationCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="IsVisibleChanged">
+            <i:InvokeCommandAction Command="{Binding IsVisibleChangedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition   Width="2*"/>
+            <ColumnDefinition   Width="1*"/>
+            <ColumnDefinition   Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" TextWrapping="Wrap" Text="Screen Name:" Grid.Column="0" Margin="0,0,5,0"  />
+        <TextBox x:Name="txtScreenName" Text="{Binding ScreenMapping.ScreenName}" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Center" Margin="0,9,126,9" />
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Visibility="{Binding ScreenMapping.IsRepeatable, Converter={StaticResource BoolToVis}}"  TextWrapping="Wrap" Text="Exit Command:" Grid.Column="0" Grid.Row="1"  Margin="0,0,5,0"  />
+        <TextBox x:Name="txtExitCommand" Visibility="{Binding ScreenMapping.IsRepeatable, Converter={StaticResource BoolToVis}}"  Text="{Binding ScreenMapping.ExitCommand}" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Center" Margin="0,9,126,9" />
+        <CheckBox x:Name="cbxRepeatable" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" IsChecked="{Binding ScreenMapping.IsRepeatable}" Content="Repeatable Screen"/>
+        <ListView
+            Name="ListCustomers"
+            ItemsSource="{Binding Path=ColumnNames}"
+            SelectedItem="{Binding Path=SelectedColumnName}"
+            SelectionMode="Single"
+            IsSynchronizedWithCurrentItem="True"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            MinHeight="100"
+            Grid.Row="3"
+            Grid.Column="0"
+            ></ListView>
+        <!-- command button -->
+        
+        <mui:ModernButton Grid.Row="3" Grid.Column="1"  Margin="0,60,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                                               EllipseDiameter="36" IconWidth="18" IconHeight="18" 
+                                                               IconData="F1 M 35.3018,22.5907L 50.8109,18.5015L 54.9998,33.9607L 52.656,38L 54.9998,42.0892L 50.8607,57.4985L 35.3517,53.3096L 33.0578,49.3201L 28.3702,49.3201L 17.0002,37.9501L 28.3702,26.6799L 33.0079,26.6799L 35.3018,22.5907 Z M 45.3254,24.2364L 33.357,27.2783L 24.7298,35.9554L 38.5433,36.1549L 45.3254,24.2364 Z M 48.6665,26.1812L 41.7847,37.9003L 48.6167,49.8687L 51.9578,37.9501L 48.6665,26.1812 Z M 24.9791,39.8451L 33.4068,48.6219L 45.5248,51.9133L 38.5433,39.895L 24.9791,39.8451 Z   "
+                                                               Command="{Binding AddCommand}"
+                                                               ToolTip="Add new Command"
+                                                               syscmd:WindowChrome.IsHitTestVisibleInChrome="True" />
+
+        
+        <!-- add button -->
+        <mui:ModernButton Grid.Row="3" Grid.Column="1" Margin="0,120,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                                               EllipseDiameter="36" IconWidth="18" IconHeight="18"
+                                                               IconData="F1 M 42.3542,38L 26.5208,53.8333L 37.2083,53.8333L 53.8333,38L 37.2083,22.1667L 26.5208,22.1667L 42.3542,38 Z "
+                                                               Command="{Binding AddColumnCommand}"
+                                                               ToolTip="Add to the current screen"
+                                                               syscmd:WindowChrome.IsHitTestVisibleInChrome="True" />
+        
+        <!-- back button -->
+        <mui:ModernButton Grid.Row="3" Grid.Column="1"  Margin="0,180,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                                                EllipseDiameter="36" IconWidth="18" IconHeight="18" 
+                                                               IconData="F1 M 33.6458,38L 49.4792,53.8333L 38.7917,53.8333L 22.1667,38L 38.7917,22.1667L 49.4792,22.1667L 33.6458,38 Z "
+                                                               Command="{Binding RemoveCommand}"
+                                                               ToolTip="Remove from current screen"
+                                                               syscmd:WindowChrome.IsHitTestVisibleInChrome="True" />
+
+
+        <ListView Name="LVScreenMapping"  
+          ItemsSource="{Binding ScreenMapping.Mappings,NotifyOnTargetUpdated=True}"
+          SelectedItem="{Binding Path=SelectedMapping}"
+          TargetUpdated="listView_TargetUpdated"        
+          IsSynchronizedWithCurrentItem="True"
+            Grid.Row="3"
+            Grid.Column="2">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+
+            </ListView.ItemContainerStyle>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn>
+                        <GridViewColumn.Header>
+                            <TextBlock Text="Mandatory" TextWrapping="Wrap"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsMandatory}" HorizontalAlignment="Center" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Type" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=Identifier}"  Margin="10,0,-4,0" IsReadOnly="True" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Command/ColumnName" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=CommandOrExcelColumn}"  Margin="-4,0,-4,0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Screen Name/Field" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Text="{Binding Path=ScreenField}"  Margin="-4,0,-4,0" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</controls:ModernUserControl>

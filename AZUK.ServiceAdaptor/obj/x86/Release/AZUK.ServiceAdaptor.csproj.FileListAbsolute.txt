@@ -1,0 +1,12 @@
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\AZUK.ServiceAdaptor.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\ClosedXML.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\DocumentFormat.OpenXml.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\Microfocus.RDE.Framework.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\RDEEHLLAPI.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\RDEHLLAPI.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\ObjectXHLLAPI.dll
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\ClosedXML.xml
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\Microfocus.RDE.Framework.xml
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\bin\x86\Release\RDEEHLLAPI.xml
+c:\executables\mainframeautomationrobot\AZUK.ServiceAdaptor\obj\x86\Release\AZUK.ServiceAdaptor.dll
+C:\Executables\MainframeAutomationRobot\AZUK.ServiceAdaptor\bin\x86\Release\AZUK.ServiceAdaptor.dll.config

@@ -1,0 +1,23 @@
+﻿<mui:ModernWindow x:Class="AZUK.MainframeAutomationRobot.MainWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+                  Title="Mainframe Automation Robot"
+                  Width="900"
+                  Height="500"
+                  IsTitleVisible="True"
+                   Style="{StaticResource MyModernWindow}">
+    
+    <mui:ModernWindow.TitleLinks>
+        <mui:Link DisplayName="Any Trouble?" Source="https://www.google.com/" />
+       </mui:ModernWindow.TitleLinks>
+
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="Steps">
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="Excel File Upload" Source="/Views/ExcelFileUploadControl.xaml" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
+
+</mui:ModernWindow>

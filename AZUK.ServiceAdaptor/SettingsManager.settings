@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AZUK.ServiceAdaptor" GeneratedClassName="SettingsManager">
+  <Profiles />
+  <Settings>
+    <Setting Name="SessionName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">A</Value>
+    </Setting>
+    <Setting Name="LogFileName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:/Temp/LogFiles/MainframeAutomationLog.log</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

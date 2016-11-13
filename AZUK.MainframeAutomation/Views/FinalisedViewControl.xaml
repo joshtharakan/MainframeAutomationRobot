@@ -1,0 +1,39 @@
+﻿<controls:ModernUserControl x:Class="AZUK.MainframeAutomationRobot.Views.FinalisedViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:AZUK.MainframeAutomationRobot.Controls"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             xmlns:syscmd="clr-namespace:Microsoft.Windows.Shell;assembly=Microsoft.Windows.Shell"
+             d:DesignHeight="300"
+             d:DesignWidth="300"
+             mc:Ignorable="d" 
+           x:Name="FinalView">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="NavigatedTo">
+            <i:InvokeCommandAction Command="{Binding NavigatedToCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="NavigatedFrom">
+            <i:InvokeCommandAction Command="{Binding NavigatedFromCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="NavigatingFrom">
+            <i:InvokeCommandAction Command="{Binding NavigatingFromCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="FragmentNavigation">
+            <i:InvokeCommandAction Command="{Binding FragmentNavigationCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="IsVisibleChanged">
+            <i:InvokeCommandAction Command="{Binding IsVisibleChangedCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid Margin="0,0,0,0">
+        <TreeView Name="trvFinalView">
+              
+        </TreeView>
+    </Grid>
+</controls:ModernUserControl>
